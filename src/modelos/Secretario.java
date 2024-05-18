@@ -14,18 +14,20 @@ public class Secretario extends Funcionario {
         super(nome, CARGO_SECRETARIO, dataContratacao, SALARIO_BASE);
     }
 
+
+    @Override
+    public Double calculoSalario(int mes, int ano) {
+        if (YearMonth.of(ano, mes).isBefore(this.getDataContratacao()))
+            return 0.0;
+        return this.getSalarioBase() + calculoAdicionalAoAno(mes, ano);
+    }
+
     @Override
     public Double calculoBeneficio(int mes, int ano) {
         // TODO Auto-generated method stub
         return null;
     }
-
-    @Override
-    public Double calculoSalario(int mes, int ano) {
-        // TODO Auto-generated method stub
-        return null;
-    }
-
+    
     @Override
     public Double calculoSalarioTotal(int mes, int ano) {
         // TODO Auto-generated method stub
