@@ -1,6 +1,7 @@
 import static modelos.Secretario.CARGO_SECRETARIO;
 import static modelos.Vendedor.CARGO_VENDEDOR;
 
+import java.time.YearMonth;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -46,5 +47,30 @@ public class Main {
         apenasFuncionariosComBeneficios.addAll(listaDeVendedores);
         apenasFuncionariosComBeneficios.addAll(listaDeSecretarios);
 
+        var dataDeConsulta = YearMonth.of(2022, 4);
+
+        System.out.println("Valor total em salarios(salários+benefícios): "
+                + Empresa.calcularSalariosTotaisAoMes(todosOsFuncionarios, dataDeConsulta.getMonthValue(),
+                        dataDeConsulta.getYear()));
+
+        System.out.println("Valor total dos salários(sem beneficios): " +
+                Empresa.calcularApenasSalariosAoMes(todosOsFuncionarios, dataDeConsulta.getMonthValue(),
+                        dataDeConsulta.getYear()));
+
+        System.out.println("Valor total dos beneficios ao mes: " +
+                Empresa.calcularBeneficiosAoMes(apenasFuncionariosComBeneficios, dataDeConsulta.getMonthValue(),
+                        dataDeConsulta.getYear()));
+
+        System.out.println("Maior salário total do mês: " +
+                Empresa.retornaMaiorSalario(todosOsFuncionarios, dataDeConsulta.getMonthValue(),
+                        dataDeConsulta.getYear()).getNome());
+
+        System.out.println("Maior beneficio do mês: " +
+                Empresa.retornarNomeDoMaiorBeneficiario(apenasFuncionariosComBeneficios, dataDeConsulta.getMonthValue(),
+                        dataDeConsulta.getYear()));
+
+        System.out.println("Vendedor que mais vendeu: " +
+                Empresa.retornarVendedorQueMaisVendeu(listaDeVendedores, dataDeConsulta.getMonthValue(),
+                        dataDeConsulta.getYear()).getNome());
     }
 }
