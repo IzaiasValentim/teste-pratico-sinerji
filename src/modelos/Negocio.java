@@ -17,4 +17,13 @@ public class Negocio {
     public void setFuncionarios(Set<Funcionario> funcionarios) {
         this.funcionarios = funcionarios;
     }
+
+    public Double calcularSalariosTotaisAoMes(List<Funcionario> listaFuncionarios, int mes, int ano) {
+        Double total = 0.0;
+        for (Funcionario funcionario : listaFuncionarios) {
+            total += funcionario.calculoSalarioTotal(mes, ano);
+        }
+        return total;
+    }
+
 }
