@@ -1,5 +1,6 @@
 package modelos;
 
+import java.time.YearMonth;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -22,6 +23,16 @@ public class Negocio {
         Double total = 0.0;
         for (Funcionario funcionario : listaFuncionarios) {
             total += funcionario.calculoSalarioTotal(mes, ano);
+        }
+        return total;
+    }
+
+    public Double calcularApenasSalariosAoMes(List<Funcionario> listaFuncionarios, int mes, int ano) {
+        Double total = 0.0;
+        for (Funcionario funcionario : listaFuncionarios) {
+            if (YearMonth.of(ano, mes).isBefore(funcionario.getDataContratacao()))
+                total += 0.0;
+            total += funcionario.calculoSalario(mes, ano);
         }
         return total;
     }
