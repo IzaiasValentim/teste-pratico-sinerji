@@ -62,4 +62,19 @@ public class Negocio {
         return funcionarioDeMaiorSalario;
     }
 
+    public String retornarNomeDoMaiorBeneficiario(List<Funcionario> listaBeneficiarios, int mes, int ano) {
+        Double maiorBeneficio = 0.0;
+        Funcionario maiorBeneficiario = listaBeneficiarios.get(0);
+
+        for (Funcionario funcionario : listaBeneficiarios) {
+            var beneficio = funcionario.calculoBeneficio(mes, ano);
+
+            if (beneficio > maiorBeneficio) {
+                maiorBeneficiario = funcionario;
+                maiorBeneficio = beneficio;
+            }
+        }
+        return maiorBeneficiario.getNome();
+    }
+    
 }
