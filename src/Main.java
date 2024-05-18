@@ -11,7 +11,7 @@ import modelos.Secretario;
 import modelos.Vendedor;
 
 public class Main {
-    
+
     public static List<Vendedor> retornaApenasVendedores(List<Funcionario> todosOsFuncionarios) {
         List<Vendedor> listaDeVendedores = new ArrayList<>();
         todosOsFuncionarios.forEach(funcionario -> {
@@ -38,6 +38,13 @@ public class Main {
         Negocio Empresa = new Negocio();
         Empresa.setFuncionarios(listaFuncionarios);
         var todosOsFuncionarios = Empresa.getFuncionarios();
+
+        List<Vendedor> listaDeVendedores = retornaApenasVendedores(todosOsFuncionarios);
+        List<Secretario> listaDeSecretarios = retornaApenasSecretarios(todosOsFuncionarios);
+
+        List<Funcionario> apenasFuncionariosComBeneficios = new ArrayList<>();
+        apenasFuncionariosComBeneficios.addAll(listaDeVendedores);
+        apenasFuncionariosComBeneficios.addAll(listaDeSecretarios);
 
     }
 }
