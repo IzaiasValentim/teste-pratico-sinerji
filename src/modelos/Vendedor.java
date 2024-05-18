@@ -1,6 +1,7 @@
 package modelos;
 
 import java.time.YearMonth;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -73,12 +74,6 @@ public class Vendedor extends Funcionario {
     }
 
     @Override
-    public Double calculoAdicionalAoAno(int mes, int ano) {
-        // TODO Auto-generated method stub
-        return null;
-    }
-
-    @Override
     public Double calculoBeneficio(int mes, int ano) {
         // TODO Auto-generated method stub
         return null;
@@ -96,5 +91,16 @@ public class Vendedor extends Funcionario {
         return null;
     }
 
+    @Override
+    public Double calculoAdicionalAoAno(int mes, int ano) {
+        if (ano < this.getDataContratacao().getYear()) {
+            return 0.0;
+        } else {
+            YearMonth inicio = this.getDataContratacao();
+            YearMonth dataAtual = YearMonth.of(ano, mes);
+            Long anosDeTrabalho = inicio.until(dataAtual, ChronoUnit.YEARS);
+            return anosDeTrabalho * ADICIONAL_AO_ANO;
+        }
+    }
     
 }
