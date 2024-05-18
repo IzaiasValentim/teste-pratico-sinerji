@@ -51,11 +51,23 @@ public class Vendedor extends Funcionario {
         super(nome, CARGO_VENDEDOR, dataContratacao, SALARIO_BASE);
         this.setVendas(vendas);
     }
-    
+
     public Double valorTotalVendas() {
         Double total = 0.0;
         for (Venda venda : this.getVendas()) {
             total += venda.getValor();
+        }
+        return total;
+    }
+
+    public Double valorVendasAoMes(int mes, int ano) {
+
+        YearMonth data = YearMonth.of(ano, mes);
+        Double total = 0.0;
+        for (Venda venda : this.getVendas()) {
+            if (venda.getDataDaVenda().equals(data)) {
+                total += venda.getValor();
+            }
         }
         return total;
     }
