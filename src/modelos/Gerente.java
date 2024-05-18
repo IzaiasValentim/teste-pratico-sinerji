@@ -23,8 +23,7 @@ public class Gerente extends Funcionario {
 
     @Override
     public Double calculoBeneficio(int mes, int ano) {
-        // TODO Auto-generated method stub
-        return null;
+        return 0.0;
     }
 
     @Override
