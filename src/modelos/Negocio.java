@@ -48,4 +48,18 @@ public class Negocio {
         return total;
     }
 
+    public Funcionario retornaMaiorSalario(List<Funcionario> listaMaiorSalario, int mes, int ano) {
+        Double maiorSalario = 0.0;
+        Funcionario funcionarioDeMaiorSalario = listaMaiorSalario.get(0);
+
+        for (Funcionario funcionario : listaMaiorSalario) {
+            var salarioDaIteracao = funcionario.calculoSalarioTotal(mes, ano);
+            if (salarioDaIteracao > maiorSalario) {
+                maiorSalario = salarioDaIteracao;
+                funcionarioDeMaiorSalario = funcionario;
+            }
+        }
+        return funcionarioDeMaiorSalario;
+    }
+
 }
