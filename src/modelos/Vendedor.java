@@ -82,8 +82,9 @@ public class Vendedor extends Funcionario {
 
     @Override
     public Double calculoBeneficio(int mes, int ano) {
-        // TODO Auto-generated method stub
-        return null;
+        if (YearMonth.of(ano, mes).isBefore(this.getDataContratacao()))
+            return 0.0;
+        return valorVendasAoMes(mes, ano) * BENEFICIO;
     }
 
     @Override
