@@ -32,4 +32,12 @@ public abstract class Funcionario {
         return salarioBase;
     }
 
+    public abstract Double calculoSalario(int mes, int ano);
+
+    public abstract Double calculoBeneficio(int mes, int ano);
+
+    public abstract Double calculoSalarioTotal(int mes, int ano);
+
+    public abstract Double calculoAdicionalAoAno(int mes, int ano);
+
 }
