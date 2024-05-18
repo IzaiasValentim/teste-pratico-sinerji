@@ -76,5 +76,20 @@ public class Negocio {
         }
         return maiorBeneficiario.getNome();
     }
-    
+
+    public Vendedor retornarVendedorQueMaisVendeu(List<Vendedor> vendedores, int mes, int ano) {
+        Double maiorVenda = 0.0;
+        Vendedor maiorVendedor = vendedores.get(0);
+
+        for (Vendedor vendedor : vendedores) {
+            var totalVendaDoMes = vendedor.valorVendasAoMes(mes, ano);
+
+            if (totalVendaDoMes > maiorVenda) {
+                maiorVendedor = vendedor;
+                maiorVenda = totalVendaDoMes;
+            }
+        }
+        return maiorVendedor;
+    }
+
 }
