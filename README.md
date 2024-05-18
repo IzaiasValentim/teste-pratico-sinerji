@@ -1,6 +1,6 @@
 ## <div align="center">Teste Prático Java</div>
 
-### * O projeto foi realizado para cumprir a segunda etapa do processo seletivo do Estágio Desenvolvedor Java na empresa Sinerji.*
+### *O projeto foi realizado para cumprir a segunda etapa do processo seletivo do Estágio Desenvolvedor Java na empresa Sinerji.*
 
 1. Resumo:
    - *O teste prático tem como principal objetivo a implementação de métodos específicos e a utilização da programação orientada a objetos na linguagem Java. Os métodos realizam ações sobre uma base de dados de funcionários aos quais podem ser Gerentes, Secretários ou Vendedores. Em sua maioria, eles nos trazem informações sobre salários, benefícios ou vendas dos funcionários.*
